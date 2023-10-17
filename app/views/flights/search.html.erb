@@ -1,0 +1,10 @@
+<%= form_tag(search_path, :method => "get") do %>
+    <%= search_field_tag :search, params[:search], placeholder: "dep_airport " %>
+    <%= button_tag "Search" %>
+<% end %>
+
+<h3>Search Results</h3>
+
+<% @results.each do |result| %>
+    <%= result.dep_airport %><br>
+<% end %>
