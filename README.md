@@ -17,5 +17,12 @@
 - Created half working search function
     - Need to figure out how it's going to display a menu alongside data displayed (select etc.)
 ### 18/10/23
-- Deciding to create a passenger form that simply asks for flight ID 
+- Decided to create a passenger form that takes in flight & passenger info which populates booking model (model not made yet)
 - Attempting to update search function to take in more arguments
+    - failed
+- Attempted to change from sqlite to mysql
+    - bricked project so reverted to yesterdays commit and back to sqlite
+- Added "Book This Flight" button to results on search page
+- Created Booking page
+- Created form template on booking page
+- Linked Booking page to "Book this Flight" button. 

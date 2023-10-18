@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: "home#home"
   get "flights", to: "flights#flights"
   get "search", to: "flights#search"
+  get "booking", to: "booking#booking"
   # Defines the root path route ("/")
   # root "posts#index"
   #testtestetsetstsetset
