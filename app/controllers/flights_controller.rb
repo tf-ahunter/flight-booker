@@ -21,7 +21,7 @@ class FlightsController < ApplicationController
 
   def search
     @parameter = params[:search]
-    @results = Flight.all.where("lower(dep_airport) LIKE :search", search: "#{@parameter}%")
+    @results = Flight.all.where("dep_airport LIKE :search", search: "#{@parameter}%")
   end
 
   # POST /flights or /flights.json

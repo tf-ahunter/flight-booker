@@ -16,4 +16,6 @@
 - Ended up just hard-coding aiport codes into it so i could move on
 - Created half working search function
     - Need to figure out how it's going to display a menu alongside data displayed (select etc.)
-    
+### 18/10/23
+- Deciding to create a passenger form that simply asks for flight ID 
+- Attempting to update search function to take in more arguments
