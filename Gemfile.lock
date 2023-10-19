@@ -103,6 +103,8 @@ GEM
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    haml (4.0.7)
+      tilt
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -217,6 +219,7 @@ GEM
       railties (>= 6.0.0)
     stringio (3.0.8)
     thor (1.2.2)
+    tilt (2.3.0)
     timeout (0.4.0)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
@@ -246,6 +249,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  haml (~> 4.0, >= 4.0.7)
   importmap-rails
   jbuilder
   mysql2 (~> 0.5.2)

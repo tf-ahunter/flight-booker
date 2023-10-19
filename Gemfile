@@ -68,3 +68,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'haml', '~> 4.0', '>= 4.0.7'

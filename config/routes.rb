@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "flights", to: "flights#flights"
   get "search", to: "flights#search"
   get "booking", to: "booking#booking"
+  #resources :bookings
   # Defines the root path route ("/")
   # root "posts#index"
   #testtestetsetstsetset

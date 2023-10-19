@@ -1,33 +1,24 @@
 class BookingController < ApplicationController
-    before_action :set_booking, only: %i[ show edit update destroy ]
 
+    def index 
+        @bookings = Booking.all
+    end
+    
     def new
-        @booking = Booking.new
-    end
-
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-    end
-
-    def destroy
+        @bookings = Booking.new
     end
 
     def create
-        @booking = Booking.new(booking_params)
-    
-        respond_to do |format|
-          if @booking.save
-            format.html { redirect_to flight_url(@flight), notice: "Flight was successfully created." }
-            format.json { render :show, status: :created, location: @booking }
-          else
-            format.html { render :new, status: :unprocessable_entity }
-            format.json { render json: @booking.errors, status: :unprocessable_entity }
-          end
+        @bookings = Booking.new(booking_params)
+        if @bookings.save
+            redirect_to @bookings
+        else
+            render :new
         end
-      end
+    end
+
+    private
+    def booking_params
+        params.require(:booking).permit(:flight_id, :passenger_name, :passenger_email, :no_passenger)
+    end
 end
