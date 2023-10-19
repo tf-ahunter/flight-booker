@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FlightBooker
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    %link{:crossorigin => "anonymous", :href => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", :integrity => "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", :rel => "stylesheet"}/
+    %script{:crossorigin => "anonymous", :integrity => "sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", :src => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"}
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container-fluid
+        %a.navbar-brand{:href => "/"} Flight Booker
+        %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNavDropdown", "data-bs-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        #navbarNavDropdown.collapse.navbar-collapse
+          %ul.navbar-nav
+            %li.nav-item
+              %a.nav-link.active{"aria-current" => "page", :href => "/"} Home
+            %li.nav-item
+              %a.nav-link{:href => "/flights"} Flights
+            %li.nav-item
+              %a.nav-link{:href => "/search"} Search
+    = yield

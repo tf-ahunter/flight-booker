@@ -27,4 +27,4 @@
 - Created form template on booking page
 - Linked Booking page to "Book this Flight" button. 
 ### 19/10/23
-- Rails routes shows error?
+- Beginning conversion of HTML to HAML
