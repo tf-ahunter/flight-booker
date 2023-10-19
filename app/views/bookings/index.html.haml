@@ -1,0 +1,5 @@
+%p{:style => "color: green"}= notice
+%h1 Bookings
+#bookings
+  - @bookings.each do |booking|
+    = render booking
