@@ -71,3 +71,6 @@ end
 
 gem "haml-rails"
 gem "html2haml"
+
+gem 'better_errors', '~> 2.9.1'
+gem 'binding_of_caller', '~> 1.0.0'

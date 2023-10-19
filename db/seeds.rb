@@ -13,7 +13,7 @@ Flight.destroy_all
 Flight.create!([{
     dep_airport: "UDK",
     arr_airport: "KQM",
-    dep_time: "2023-10-13 14:35:00",
+    dep_time: "2023-10-13 14:35:00",      
     duration: "45"
 },
 {
@@ -34,4 +34,34 @@ Flight.create!([{
     dep_time: "2025-04-13 16:10:00",
     duration: "100"
 }])
+
+
+Booking.destroy_all
+
+Booking.create!([{
+    passenger_name: "Bob McTable",
+    passenger_email: "Bob@gmail.com",
+    no_passenger: "3",      
+    flight_id: "5"
+},
+{
+    passenger_name: "Steve O'Chip",
+    passenger_email: "Steve@gmail.com",
+    no_passenger: "1",      
+    flight_id: "3"
+},
+{
+    passenger_name: "Mike McMike",
+    passenger_email: "Mike@gmail.com",
+    no_passenger: "5",      
+    flight_id: "1"
+},
+{
+    passenger_name: "Amy Chicken",
+    passenger_email: "Amy@gmail.com",
+    no_passenger: "3",      
+    flight_id: "5"
+}])
+
+
 

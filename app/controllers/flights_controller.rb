@@ -21,7 +21,7 @@ class FlightsController < ApplicationController
 
   def search
     @parameter = params[:search]
-    @results = Flight.all.where("dep_airport LIKE :search", search: "#{@parameter}%")
+    @results = Flight.where("dep_airport LIKE :search", search: "#{@parameter}%")
   end
 
   # POST /flights or /flights.json
@@ -31,10 +31,8 @@ class FlightsController < ApplicationController
     respond_to do |format|
       if @flight.save
         format.html { redirect_to flight_url(@flight), notice: "Flight was successfully created." }
-        format.json { render :show, status: :created, location: @flight }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -28,3 +28,5 @@
 - Linked Booking page to "Book this Flight" button. 
 ### 19/10/23
 - Beginning conversion of HTML to HAML
+- Booking Form throwing various errors
+- Booking Form works, just needs to redirect to SHOW

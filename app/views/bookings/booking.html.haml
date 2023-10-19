@@ -1,5 +1,5 @@
 %h1 Enter Booking Details
-= form_with model: @booking do |form|
+= form_with(model: @booking) do |form|
   = form.label :flight_id, "Enter Flight ID:", style: "display: block"
   = form.number_field :flight_id
   %br/
@@ -19,4 +19,3 @@
   = form.submit
   %br/
   %br/
-  = @booking
