@@ -1,0 +1,19 @@
+= form_tag(search_path, :method => "get") do
+  = search_field_tag :search, params[:search], placeholder: "dep_airport "
+  = button_tag "Search"
+%h3 Search Results
+- @results.each do |result|
+  = "FLIGHT ID:         #{result.id}"
+  %br/
+  = "Departure Airport: #{result.dep_airport}"
+  %br/
+  = "Arrival Airport:   #{result.arr_airport}"
+  %br/
+  = "Departure Time:    #{result.dep_time}"
+  %br/
+  = "Duration:          #{result.duration} minutes"
+  %br/
+  = link_to "Book This Flight", "/booking"
+  %br/
+  = "-----------------------------------------------------"
+  %br/
