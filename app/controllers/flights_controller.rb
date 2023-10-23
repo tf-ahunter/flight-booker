@@ -42,10 +42,8 @@ class FlightsController < ApplicationController
     respond_to do |format|
       if @flight.update(flight_params)
         format.html { redirect_to flight_url(@flight), notice: "Flight was successfully updated." }
-        format.json { render :show, status: :ok, location: @flight }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +54,6 @@ class FlightsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to flights_url, notice: "Flight was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
