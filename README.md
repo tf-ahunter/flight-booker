@@ -30,3 +30,6 @@
 - Beginning conversion of HTML to HAML
 - Booking Form throwing various errors
 - Booking Form works, just needs to redirect to SHOW
+### 23/10/23
+- Booking form now stores data, redirects to show page and displays most recent results
+- Converted sqLite db to MySQL
