@@ -11,27 +11,33 @@
 Flight.destroy_all
 
 Flight.create!([{
-    dep_airport: "UDK",
-    arr_airport: "KQM",
-    dep_time: "2023-10-13 14:35:00",      
+    dep_airport: "ABC",
+    arr_airport: "DEF",
+    dep_time: "2023-10-13 14:00:00",      
     duration: "45"
 },
 {
-    dep_airport: "LQN",
-    arr_airport: "UVJ",
-    dep_time: "2023-12-13 10:30:00",
+    dep_airport: "GHI",
+    arr_airport: "ABC",
+    dep_time: "2023-12-13 10:00:00",
     duration: "120"
 },
 {
-    dep_airport: "LQM",
-    arr_airport: "NYC",
-    dep_time: "2024-05-12 10:55:00",
+    dep_airport: "XYZ",
+    arr_airport: "DEF",
+    dep_time: "2024-05-12 11:00:00",
     duration: "90"
 },
 {
-    dep_airport: "YHB",
-    arr_airport: "SAO",
-    dep_time: "2025-04-13 16:10:00",
+    dep_airport: "XYZ",
+    arr_airport: "DEF",
+    dep_time: "2024-05-12 12:00:00",
+    duration: "90"
+},
+{
+    dep_airport: "ABC",
+    arr_airport: "XYZ",
+    dep_time: "2025-04-13 16:00:00",
     duration: "100"
 }])
 

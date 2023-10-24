@@ -1,3 +1,4 @@
 class Flight < ApplicationRecord
-    has_many :posts 
+    has_many :bookings 
+    
 end
