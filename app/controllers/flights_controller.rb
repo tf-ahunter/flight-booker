@@ -20,9 +20,21 @@ class FlightsController < ApplicationController
   end
 
   def search
-    @parameter = params[:search]
-    @results = Flight.where("dep_airport LIKE :search", search: "#{@parameter}%")
-  end
+    @results = Flight.all
+    
+    if params[:search]
+      @results = @results.where("dep_airport like ?", 
+      "%#{params[:search]}%")
+    end
+    if params[:arr_airport_search]
+      @results = @results.where("arr_airport like ?", 
+      "%#{params[:arr_airport_search]}%")
+      end
+    if params[:dep_time_search]
+      @results = @results.where("dep_time like ?", 
+      "%#{params[:dep_time_search]}%")
+    end
+ end
 
   # POST /flights or /flights.json
   def create

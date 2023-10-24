@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_18_131116) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_24_105026) do
   create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "passenger_name"
     t.string "passenger_email"
@@ -25,6 +25,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_18_131116) do
     t.string "arr_airport"
     t.datetime "dep_time"
     t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "passengers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
