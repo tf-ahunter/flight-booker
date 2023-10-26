@@ -8,66 +8,39 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+
+
 Flight.destroy_all
 
 Flight.create!([{
-    dep_airport: "ABC",
-    arr_airport: "DEF",
-    dep_time: "2023-10-13 14:00:00",      
-    duration: "45"
+    departure_airport_id:  106,
+    arrival_airport_id:  107,     
+    flight_time: "2023-10-13 13:00:00",
+    flight_duration: "30"
 },
 {
-    dep_airport: "GHI",
-    arr_airport: "ABC",
-    dep_time: "2023-12-13 10:00:00",
-    duration: "120"
+    departure_airport_id:  108,
+    arrival_airport_id:  109,
+    flight_time: "2023-10-13 14:00:00",
+    flight_duration: "60"
 },
 {
-    dep_airport: "XYZ",
-    arr_airport: "DEF",
-    dep_time: "2024-05-12 11:00:00",
-    duration: "90"
+    departure_airport_id:  110,
+    arrival_airport_id:  109,
+    flight_time: "2023-10-13 15:00:00",
+    flight_duration: "20"
 },
 {
-    dep_airport: "XYZ",
-    arr_airport: "DEF",
-    dep_time: "2024-05-12 12:00:00",
-    duration: "90"
+    departure_airport_id:  108,
+    arrival_airport_id:  107,
+    flight_time: "2023-10-13 16:00:00",
+    flight_duration: "100"
 },
 {
-    dep_airport: "ABC",
-    arr_airport: "XYZ",
-    dep_time: "2025-04-13 16:00:00",
-    duration: "100"
+    departure_airport_id:  106,
+    arrival_airport_id:  107,
+    flight_time: "2023-10-13 17:00:00",
+    flight_duration: "120"
 }])
-
-
-Booking.destroy_all
-
-Booking.create!([{
-    passenger_name: "Bob McTable",
-    passenger_email: "Bob@gmail.com",
-    no_passenger: "3",      
-    flight_id: "5"
-},
-{
-    passenger_name: "Steve O'Chip",
-    passenger_email: "Steve@gmail.com",
-    no_passenger: "1",      
-    flight_id: "3"
-},
-{
-    passenger_name: "Mike McMike",
-    passenger_email: "Mike@gmail.com",
-    no_passenger: "5",      
-    flight_id: "1"
-},
-{
-    passenger_name: "Amy Chicken",
-    passenger_email: "Amy@gmail.com",
-    no_passenger: "3",      
-    flight_id: "5"
-}])
-
 
 

@@ -1,21 +1,21 @@
 = form_tag(search_path, :method => "get") do
-  = select_tag :search, options_from_collection_for_select(@results, "dep_airport", "dep_airport"), {:prompt => 'Departure Airport'}
-  = select_tag :arr_airport_search, options_from_collection_for_select(@results, "arr_airport", "arr_airport"), {:prompt => 'Arrival Airport'}
-  = select_tag :dep_time_search, options_from_collection_for_select(@results, "dep_time", "dep_time"), {:prompt => 'Departure Time'}
-  = select_tag(:placeholder, options_for_select(['', '1', '2', '3', '4']), {:prompt => 'Number of Passengers'})
+  = select_tag :search, options_from_collection_for_select(@results, "departure_airport_id", "departure_airport_id"), {:prompt => 'Departure Airport'}
+  = select_tag :arr_airport_search, options_from_collection_for_select(@results, "arrival_airport_id", "arrival_airport_id"), {:prompt => 'Arrival Airport'}
+  = select_tag :dep_time_search, options_from_collection_for_select(@results, "flight_time", "flight_time"), {:prompt => 'Departure Time'}
+  = select_tag :placeholder, options_for_select(['', '1', '2', '3', '4']), {:prompt => 'Number of Passengers'}
 
   = button_tag "Search"
 %h3 Search Results
 - @results.each do |result|
   = "FLIGHT ID:         #{result.id}"
   %br/
-  = "Departure Airport: #{result.dep_airport}"
+  = "Departure Airport: #{Airport.where(id:(result.departure_airport_id)).pluck(:airport_code)}"
   %br/
-  = "Arrival Airport:   #{result.arr_airport}"
+  = "Arrival Airport:   #{Airport.where(id:(result.arrival_airport_id)).pluck(:airport_code)}"
   %br/
-  = "Departure Time:    #{result.dep_time}"
+  = "Departure Time:    #{result.flight_time}"
   %br/
-  = "Duration:          #{result.duration} minutes"
+  = "Duration:          #{result.flight_duration} minutes"
   %br/
   = link_to "Book This Flight", "/bookings/new"
   %br/

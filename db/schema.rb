@@ -10,28 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_24_105026) do
-  create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "passenger_name"
-    t.string "passenger_email"
-    t.integer "no_passenger"
-    t.integer "flight_id"
+ActiveRecord::Schema[7.1].define(version: 2023_10_25_105811) do
+  create_table "airports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "airport_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "dep_airport"
-    t.string "arr_airport"
-    t.datetime "dep_time"
-    t.integer "duration"
+    t.bigint "departure_airport_id", null: false
+    t.bigint "arrival_airport_id", null: false
+    t.datetime "flight_time"
+    t.integer "flight_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
+    t.index ["departure_airport_id"], name: "index_flights_on_departure_airport_id"
   end
 
-  create_table "passengers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "flights", "airports", column: "arrival_airport_id"
+  add_foreign_key "flights", "airports", column: "departure_airport_id"
 end

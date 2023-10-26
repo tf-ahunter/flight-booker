@@ -1,9 +1,5 @@
-%h1 Enter Booking Details
+%h1 Enter Pasenger Information
 = form_for @booking do |form|    
-    = form.label :flight_id, "Enter Flight ID:", style: "display: block"
-    = form.number_field :flight_id
-    %br/
-    %br/
     = form.label :passenger_name, "Enter Your Name:", style: "display: block"
     = form.text_field :passenger_name
     %br/

@@ -23,15 +23,15 @@ class FlightsController < ApplicationController
     @results = Flight.all
     
     if params[:search]
-      @results = @results.where("dep_airport like ?", 
+      @results = @results.where("departure_airport_id like ?", 
       "%#{params[:search]}%")
     end
     if params[:arr_airport_search]
-      @results = @results.where("arr_airport like ?", 
+      @results = @results.where("arrival_airport_id like ?", 
       "%#{params[:arr_airport_search]}%")
       end
     if params[:dep_time_search]
-      @results = @results.where("dep_time like ?", 
+      @results = @results.where("flight_time like ?", 
       "%#{params[:dep_time_search]}%")
     end
  end
@@ -77,6 +77,6 @@ class FlightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flight_params
-      params.require(:flight).permit(:dep_airport, :arr_airport, :dep_time, :duration)
+      params.require(:flight).permit(:arrival_airport_id, :departure_airport_id, :flight_time, :flight_duration)
     end
 end
