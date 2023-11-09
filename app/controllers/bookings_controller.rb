@@ -6,12 +6,14 @@ class BookingsController < ApplicationController
   end
     
   def new
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
+    @flight = @booking.flight
+    params[:passenger_number].to_i.times {@booking.passengers.build}
+    @flight_id = Flight.find(params[:booking][:id]).id
   end
 
   def create
     @booking = Booking.new(booking_params)
-  
     respond_to do |format|
       if @booking.save
         format.html { redirect_to booking_url(@booking), notice: "Booking was successfully created." }
@@ -41,6 +43,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-      params.require('booking').permit(:flight_id, :passenger_name, :passenger_email, :no_passenger)
+      params.require(:booking).permit(:flight_id, :passengers_attributes => [:passenger_name, :passenger_email])
   end
+
 end

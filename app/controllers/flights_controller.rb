@@ -8,6 +8,7 @@ class FlightsController < ApplicationController
 
   # GET /flights/1 or /flights/1.json
   def show
+   redirect_to booking_path
   end
 
   # GET /flights/new
@@ -21,7 +22,6 @@ class FlightsController < ApplicationController
 
   def search
     @results = Flight.all
-    
     if params[:search]
       @results = @results.where("departure_airport_id like ?", 
       "%#{params[:search]}%")

@@ -13,15 +13,15 @@
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .container-fluid
-        %a.navbar-brand{:href => "/"} Flight Booker
+        %a.navbar-brand{:href => "/home"} Flight Booker
         %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNavDropdown", "data-bs-toggle" => "collapse", :type => "button"}
           %span.navbar-toggler-icon
         #navbarNavDropdown.collapse.navbar-collapse
           %ul.navbar-nav
             %li.nav-item
-              %a.nav-link.active{"aria-current" => "page", :href => "/"} Home
+              %a.nav-link.active{"aria-current" => "page", :href => "/home"} Home
             %li.nav-item
               %a.nav-link{:href => "/flights"} 
             %li.nav-item
-              %a.nav-link{:href => "/search"} Search
+              %a.nav-link{:href => "/"} Search
     = yield

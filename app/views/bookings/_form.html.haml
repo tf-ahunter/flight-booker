@@ -1,17 +1,41 @@
-%h1 Enter Pasenger Information
-= form_for @booking do |form|    
-    = form.label :passenger_name, "Enter Your Name:", style: "display: block"
-    = form.text_field :passenger_name
-    %br/
-    %br/
-    = form.label :passenger_email, "Enter Your Email", style: "display: block"
-    = form.text_field :passenger_email
-    %br/
-    %br/
-    = form.label :no_passenger, "Enter Number of Passengers:", style: "display: block"
-    = form.number_field :no_passenger
-    %br/
-    %br/
-    = form.submit "Book"
-    %br/
-    %br/
+%br
+%h2 Here are Your Selected Flight Details!
+%br
+= "Flight ID: #{Flight.find(params[:booking][:id]).id}"
+%br
+%br
+= "Departure Airport: #{Flight.find(params[:booking][:id]).departure_airport.airport_code}"
+%br
+%br
+= "Arrival Airport: #{Flight.find(params[:booking][:id]).arrival_airport.airport_code}"
+%br
+%br
+= "Departure Time: #{Flight.find(params[:booking][:id]).flight_time}"
+%br
+%br
+= "Duration: #{Flight.find(params[:booking][:id]).flight_duration} minutes"
+%br
+%br
+%h2 Enter Passenger Information
+%br
+= "Number of Passengers: #{params[:passenger_number]}"
+%br
+%br
+
+= form_for @booking do |f|
+    = f.hidden_field(:flight_id, value: @flight_id)
+    = f.fields_for :passengers do |passenger_form|    
+        = passenger_form.label "Passenger Name: "
+        = passenger_form.text_field :passenger_name
+        %br
+        = passenger_form.label "Passenger Email: "
+        = passenger_form.text_field :passenger_email
+        %br
+        %br
+    = f.submit
+
+
+
+
+
+

@@ -1,23 +1,41 @@
+- no_of_pass =  params[:passenger_number].presence || 1
+ 
 = form_tag(search_path, :method => "get") do
   = select_tag :search, options_from_collection_for_select(@results, "departure_airport_id", "departure_airport_id"), {:prompt => 'Departure Airport'}
   = select_tag :arr_airport_search, options_from_collection_for_select(@results, "arrival_airport_id", "arrival_airport_id"), {:prompt => 'Arrival Airport'}
-  = select_tag :dep_time_search, options_from_collection_for_select(@results, "flight_time", "flight_time"), {:prompt => 'Departure Time'}
-  = select_tag :placeholder, options_for_select(['', '1', '2', '3', '4']), {:prompt => 'Number of Passengers'}
+  = select_tag :dep_time_search, options_from_collection_for_select(@results, :flight_time_formatted, :flight_time_formatted), {:prompt => 'Departure Time'}
+  = select_tag :passenger_number, options_for_select(['', '1', '2', '3', '4']), {prompt: 'Number of Passengers'}
 
   = button_tag "Search"
+%br
 %h3 Search Results
 - @results.each do |result|
   = "FLIGHT ID:         #{result.id}"
   %br/
-  = "Departure Airport: #{Airport.where(id:(result.departure_airport_id)).pluck(:airport_code)}"
+  = "Departure Airport: #{result.departure_airport.airport_code}"
   %br/
-  = "Arrival Airport:   #{Airport.where(id:(result.arrival_airport_id)).pluck(:airport_code)}"
+  = "Arrival Airport:   #{result.arrival_airport.airport_code}"
   %br/
   = "Departure Time:    #{result.flight_time}"
   %br/
   = "Duration:          #{result.flight_duration} minutes"
   %br/
-  = link_to "Book This Flight", "/bookings/new"
   %br/
   = "-----------------------------------------------------"
   %br/
+  
+
+= form_for '', url: new_booking_path, method: :get, html: {id: 'new_booking_form' } do |form|
+  = form.label :Select_flight, style: "display: block"
+  = form.hidden_field(:passenger_number, value: no_of_pass)
+  = collection_radio_buttons(:booking, :id, @results, :id, :departure_airport_code)
+  = form.submit "Select Flight"
+
+
+-# = form_with(model: @result) do |form|
+-#   = form.label :Select_flight, style: "display: block"
+-#   = collection_radio_buttons(:booking, :id, @results, :id, :departure_airport_code)
+
+-#   = form.submit "Select Flight"
+-#   %br/
+  
